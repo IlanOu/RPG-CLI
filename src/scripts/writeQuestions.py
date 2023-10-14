@@ -1,6 +1,6 @@
 from src.scripts import test_typing
 import json
-from src.scripts import printErrors
+from src.scripts import log
 
 """
 Les fonctions qui commencent par _ sont des fonctions 
@@ -14,7 +14,7 @@ def _getQuestion(question_id):
     
     #? Gestion d'erreur
     if jsonPath == '':
-        printErrors.errorMessage('jsonPath is not set !')
+        log.errorMessage('jsonPath is not set !')
         return
     
     
@@ -33,7 +33,7 @@ def _getQuestion(question_id):
     file.close()
     
     #? Gestion d'erreur
-    printErrors.errorMessage(f'Id not found : {str(question_id)}')
+    log.errorMessage(f'Id not found : {str(question_id)}')
     return
 
 

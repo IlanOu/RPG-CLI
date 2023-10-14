@@ -1,5 +1,3 @@
-import sys
-# sys.path.append('')  # Ajoutez une chaîne vide pour inclure le répertoire racine de votre projet
 from src.scripts import writeQuestions
 
 def start():
