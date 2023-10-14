@@ -1,7 +1,35 @@
 import time
 import re
+from colorama import init as colorama_init
+from colorama import Fore
+from colorama import Style
+from src.scripts import log
 
-def _typing_effect(string, timeout=0.05, multiplier=1.0):
+colorama_init()
+
+def _getColor(colorName):
+    if colorName == "white":
+        return Fore.WHITE
+    elif colorName == "red":
+        return Fore.LIGHTRED_EX
+    elif colorName == "blue":
+        return Fore.LIGHTBLUE_EX
+    elif colorName == "cyan":
+        return Fore.CYAN
+    elif colorName == "yellow":
+        return Fore.YELLOW
+    elif colorName == "magenta":
+        return Fore.MAGENTA
+    elif colorName == "green":
+        return Fore.LIGHTGREEN_EX
+    elif colorName == "black":
+        return Fore.BLACK
+    else:
+        #? Gestion d'erreur
+        log.errorMessage("Unknown color : " + colorName)
+        return None
+
+def _typing_effect(string, timeout=0.05, multiplier=1.0, color="white"):
     """ 
     Effet de typing.
     Prend en parametre :
@@ -10,9 +38,17 @@ def _typing_effect(string, timeout=0.05, multiplier=1.0):
     - le multiplieur de temps
     """
     
+    textColor = _getColor(color)
+    if textColor:
+        print(textColor, end="", flush=True)
+    else:
+        return False
+    
     for i in string:
-        print(i, end="", flush=True)
+        print(_getColor(color) + i, end="", flush=True)
         time.sleep(timeout * float(multiplier))
+    print(Style.RESET_ALL, end="", flush=True)
+
 
 def _getWordTag(string):
     """
@@ -45,8 +81,14 @@ def _normalizeSentence(string):
 
 
 
+# ---------------------------------------------------------------------------- #
+#                Fonctions utilisables en dehors de ce module                  #
+# ---------------------------------------------------------------------------- #
 
-def writeText(text, timeout=0.05):
+
+def writeText(text="", color="white", timeout=0.05):
     words = _normalizeSentence(text)
     for word in words:
-        _typing_effect(string=_getWordTag(word)[1] + " ", timeout=timeout, multiplier=_getWordTag(word)[0])
+        working = _typing_effect(string=_getWordTag(word)[1] + " ", timeout=timeout, multiplier=_getWordTag(word)[0], color=color)
+        if working == False:
+            break

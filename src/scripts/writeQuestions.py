@@ -42,7 +42,8 @@ def setPath(path):
     jsonPath = path
 
 
-def writeQuestion(question_id):
+def writeQuestion(question_id, color="white", timeout=0.05):
     question = _getQuestion(question_id)
-    test_typing.writeText(question)
+    test_typing.writeText(text=question, color=color, timeout=timeout)
+    print()
     return question
