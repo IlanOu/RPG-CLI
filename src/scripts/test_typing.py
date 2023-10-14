@@ -26,7 +26,7 @@ def _getColor(colorName):
         return Fore.BLACK
     else:
         #? Gestion d'erreur
-        log.errorMessage("Unknown color : " + colorName)
+        log.error("Unknown color : " + colorName)
         return None
 
 def _typing_effect(string, timeout=0.05, multiplier=1.0, color="white"):

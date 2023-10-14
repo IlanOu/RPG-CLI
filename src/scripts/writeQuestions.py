@@ -14,7 +14,7 @@ def _getQuestion(question_id):
     
     #? Gestion d'erreur
     if jsonPath == '':
-        log.errorMessage('jsonPath is not set !')
+        log.error('jsonPath is not set !')
         return
     
     
@@ -33,7 +33,7 @@ def _getQuestion(question_id):
     file.close()
     
     #? Gestion d'erreur
-    log.errorMessage(f'Id not found : {str(question_id)}')
+    log.error(f'Id not found : {str(question_id)}')
     return
 
 
@@ -42,8 +42,8 @@ def setPath(path):
     jsonPath = path
 
 
-def writeQuestion(question_id, color="white", timeout=0.05):
-    question = _getQuestion(question_id)
+def writeQuestion(id, color="white", timeout=0.05):
+    question = _getQuestion(id)
     test_typing.writeText(text=question, color=color, timeout=timeout)
     print()
     return question
