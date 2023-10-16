@@ -18,25 +18,33 @@ def choiceSelectionWithArrow( textHistoire ,jsonArrayChoice):
 
     # draw text with typing effect
     _drawText(data, indexSelection, 1)
+    _drawText(data, indexSelection, 0 , textHistoire)
+
 
     # affichage en boucle
     while selectedId == None:
         
         # draw text w/out typing effect and clear console
-        _drawText(data, indexSelection, 0 , textHistoire)
+        # _drawText(data, indexSelection, 0 , textHistoire)
         
         # test input keyboard
         while True:
             if keyboard.is_pressed("up arrow"):
                 if indexSelection > 0:
                     indexSelection -= 1
+                    _drawText(data, indexSelection, 0 , textHistoire)
+
                 break
             elif keyboard.is_pressed("down arrow"):
                 if indexSelection < (len(data) - 1):
                     indexSelection += 1
+                    _drawText(data, indexSelection, 0 , textHistoire)
+
                 break
             elif keyboard.is_pressed("enter"):
                 selectedId = data[indexSelection]["redirection_id"]
+                # _drawText(data, indexSelection, 0 , textHistoire)
+
                 break
     return selectedId
 
@@ -72,16 +80,16 @@ def _drawText(data, indexSelection, isTypingEffect = 1, textHistoire = "aaaa"):
         currentIndex += 1
 
 
-# x = [
-#             {
-#                 "text": "Yes",
-#                 "redirection_id": "qdfdqgf"
-#             },
-#             {
-#                 "text": "No",
-#                 "redirection_id": "egegerS"
-#             }
-#         ]
-# e = choiceSelectionWithArrow("aaa", json.dumps(x) )
+x = [
+            {
+                "text": "Yes",
+                "redirection_id": "qdfdqgf"
+            },
+            {
+                "text": "No",
+                "redirection_id": "egegerS"
+            }
+        ]
+e = choiceSelectionWithArrow("aaa", json.dumps(x) )
 
-# print(e)
+print(e)

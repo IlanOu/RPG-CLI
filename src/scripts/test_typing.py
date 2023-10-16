@@ -6,4 +6,4 @@ def typing_effect(string, timeout=0.05):
         time.sleep(timeout)
         
         
-typing_effect("Bonjour, ceci est un texte completement aléatoire pour tester ma magnifique fonction typing_effect, qui, comme son nom l'indique, créé un effet de typing")
+# typing_effect("Bonjour, ceci est un texte completement aléatoire pour tester ma magnifique fonction typing_effect, qui, comme son nom l'indique, créé un effet de typing")
