@@ -1,6 +1,6 @@
-import test_typing as textWriter
-import cleanerConsole as consoleClean
-import json 
+from src.scripts import printText as textWriter
+from src.scripts import tools as tool
+import json
 import keyboard
 
 # id qui sera renvoyer par le script
@@ -55,7 +55,7 @@ def _drawText(data, indexSelection, isTypingEffect = 1, textHistoire = "aaaa"):
 
     # for effect of smooth choice clean console and re print the history
     if not isTypingEffect:
-        consoleClean.clean()
+        tool.clearConsole()
         print(textHistoire)
 
 
@@ -73,23 +73,8 @@ def _drawText(data, indexSelection, isTypingEffect = 1, textHistoire = "aaaa"):
 
             # if not typing effect is for selection
             if isTypingEffect:
-                textWriter.typing_effect(preText + element["text"] + "\n")
+                textWriter.writeTextWithTypingEffect(preText + element["text"] + "\n")
             else:
                 print(preText + element["text"] + "\n")
 
         currentIndex += 1
-
-
-x = [
-            {
-                "text": "Yes",
-                "redirection_id": "qdfdqgf"
-            },
-            {
-                "text": "No",
-                "redirection_id": "egegerS"
-            }
-        ]
-e = choiceSelectionWithArrow("aaa", json.dumps(x) )
-
-print(e)

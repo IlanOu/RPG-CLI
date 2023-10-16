@@ -3,31 +3,7 @@ import re
 from colorama import init as colorama_init
 from colorama import Fore
 from colorama import Style
-from src.scripts import log
-
-colorama_init()
-
-def _getColor(colorName):
-    if colorName == "white":
-        return Fore.WHITE
-    elif colorName == "red":
-        return Fore.LIGHTRED_EX
-    elif colorName == "blue":
-        return Fore.LIGHTBLUE_EX
-    elif colorName == "cyan":
-        return Fore.CYAN
-    elif colorName == "yellow":
-        return Fore.YELLOW
-    elif colorName == "magenta":
-        return Fore.MAGENTA
-    elif colorName == "green":
-        return Fore.LIGHTGREEN_EX
-    elif colorName == "black":
-        return Fore.BLACK
-    else:
-        #? Gestion d'erreur
-        log.error("Unknown color : " + colorName)
-        return None
+from src.scripts import tools as tool
 
 def _typing_effect(string, timeout=0.05, multiplier=1.0, color="white"):
     """ 
@@ -38,14 +14,14 @@ def _typing_effect(string, timeout=0.05, multiplier=1.0, color="white"):
     - le multiplieur de temps
     """
     
-    textColor = _getColor(color)
+    textColor = tool.getColor(color)
     if textColor:
         print(textColor, end="", flush=True)
     else:
         return False
     
     for i in string:
-        print(_getColor(color) + i, end="", flush=True)
+        print(tool.getColor(color) + i, end="", flush=True)
         time.sleep(timeout * float(multiplier))
     print(Style.RESET_ALL, end="", flush=True)
 
@@ -86,9 +62,11 @@ def _normalizeSentence(string):
 # ---------------------------------------------------------------------------- #
 
 
-def writeText(text="", color="white", timeout=0.05):
+def writeTextWithTypingEffect(text="", color="white", timeout=0.05):
     words = _normalizeSentence(text)
     for word in words:
         working = _typing_effect(string=_getWordTag(word)[1] + " ", timeout=timeout, multiplier=_getWordTag(word)[0], color=color)
         if working == False:
             break
+
+# TODO writeTextWithNormalEffect

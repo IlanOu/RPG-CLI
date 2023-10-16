@@ -1,4 +1,4 @@
-from src.scripts import test_typing
+from src.scripts import printText
 import json
 from src.scripts import log
 
@@ -44,6 +44,6 @@ def setPath(path):
 
 def writeQuestion(id, color="white", timeout=0.05):
     question = _getQuestion(id)
-    test_typing.writeText(text=question, color=color, timeout=timeout)
+    printText.writeTextWithTypingEffect(text=question, color=color, timeout=timeout)
     print()
     return question
