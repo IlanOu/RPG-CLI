@@ -2,7 +2,7 @@
     "0": {
         "animation_start_name": "animation_start",
         "animation_stop_name": "",
-        "question": "Are you sure you want to delete this file?",
+        "question": "Are you sure you want <3>to delete this file ?</3>",
         "type": "one_dice",
         "choices": [
             {
