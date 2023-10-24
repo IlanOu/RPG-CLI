@@ -23,4 +23,4 @@ def readPage(idPage):
     input("end")
 
 if __name__ == '__main__':
-    start()
+    # start()
