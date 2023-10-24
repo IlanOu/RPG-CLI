@@ -8,13 +8,13 @@ from colorama import Style
 
 colorama_init()
 
-def error(message):
+def logError(message):
     print(f'{Fore.LIGHTRED_EX}\n❌ | {message}{Style.RESET_ALL}')
 
-def warning(message):
+def logWarning(message):
     print(f'{Fore.YELLOW}\n⚠️  | {message}{Style.RESET_ALL}')
 
-def valid(message):
+def logValid(message):
     print(f'{Fore.GREEN}\n✅ | {message}{Style.RESET_ALL}')
 
 
@@ -39,8 +39,6 @@ def clearConsole():
 #                                  Get Colors                                  #
 # ---------------------------------------------------------------------------- #
 
-from src.scripts import log
-
 colorama_init()
 
 def getColor(colorName):
@@ -62,5 +60,5 @@ def getColor(colorName):
         return Fore.BLACK
     else:
         #? Gestion d'erreur
-        log.error("Unknown color : " + colorName)
+        error("Unknown color : " + colorName)
         return None

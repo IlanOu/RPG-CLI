@@ -1,6 +1,6 @@
 from src.scripts import printText
 import json
-from src.scripts import log
+from src.scripts import tools as tool
 
 """
 Les fonctions qui commencent par _ sont des fonctions 
@@ -14,7 +14,7 @@ def _getQuestion(question_id):
     
     #? Gestion d'erreur
     if jsonPath == '':
-        log.error('jsonPath is not set !')
+        tool.logError('jsonPath is not set !')
         return
     
     
@@ -33,7 +33,7 @@ def _getQuestion(question_id):
     file.close()
     
     #? Gestion d'erreur
-    log.error(f'Id not found : {str(question_id)}')
+    tool.logError(f'Id not found : {str(question_id)}')
     return
 
 

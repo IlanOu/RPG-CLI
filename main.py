@@ -1,11 +1,10 @@
 from src.scripts import writeQuestions
-from src.scripts import log
 from src.scripts import menuSelection
 import json
 
 def start():
     writeQuestions.setPath("./src/assets/structure.json")
-    question = writeQuestions.writeQuestion(id="0", color="white", timeout=0.01)
+    # question = writeQuestions.writeQuestion(id="0", color="white", timeout=0.01)
     x = [
             {
                 "text": "Yes",
@@ -16,8 +15,9 @@ def start():
                 "redirection_id": "egegerS"
             }
         ]
-    e = menuSelection.choiceSelectionWithArrow("aaa", json.dumps(x) )
-    print(e)
+    e = menuSelection.choiceSelectionWithDice("blablabla", json.dumps(x), 6 )
+    # print(e)
+    input("end")
 
 if __name__ == '__main__':
     start()
