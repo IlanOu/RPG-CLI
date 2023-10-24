@@ -69,4 +69,4 @@ def writeTextWithTypingEffect(text="", color="white", timeout=0.05):
         if working == False:
             break
 
-# TODO writeTextWithNormalEffect
+# TODO writeTextWithNormalEffect and normalize sentence

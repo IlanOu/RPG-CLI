@@ -60,5 +60,5 @@ def getColor(colorName):
         return Fore.BLACK
     else:
         #? Gestion d'erreur
-        error("Unknown color : " + colorName)
+        logError("Unknown color : " + colorName)
         return None

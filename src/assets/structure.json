@@ -2,16 +2,48 @@
     "0": {
         "animation_start_name": "animation_start",
         "animation_stop_name": "",
-        "question": "Are you sure you want <3>to delete this file ?</3>",
-        "type": "one_dice",
+        "question": "question numero 0 <3>to delete this file ?</3>",
+        "type": "arrow",
         "choices": [
             {
                 "text": "Yes",
-                "redirection_id": "qdfdqgf"
+                "redirection_id": "1"
             },
             {
                 "text": "No",
-                "redirection_id": "egegerS"
+                "redirection_id": "2"
+            }
+        ]
+    },
+    "1": {
+        "animation_start_name": "animation_start",
+        "animation_stop_name": "",
+        "question": "question numero 1 <3>to delete this file ?</3>",
+        "type": "arrow",
+        "choices": [
+            {
+                "text": "Yes",
+                "redirection_id": "0"
+            },
+            {
+                "text": "No",
+                "redirection_id": "0"
+            }
+        ]
+    },
+    "2": {
+        "animation_start_name": "animation_start",
+        "animation_stop_name": "",
+        "question": "question numero 2 <3>to delete this file ?</3>",
+        "type": "dice",
+        "choices": [
+            {
+                "text": "Yes",
+                "redirection_id": "0"
+            },
+            {
+                "text": "No",
+                "redirection_id": "0"
             }
         ]
     }

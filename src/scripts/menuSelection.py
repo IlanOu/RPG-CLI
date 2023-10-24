@@ -3,15 +3,16 @@ from src.scripts import tools as tool
 import json
 import keyboard
 import random
-import time
 
 # id qui sera renvoyer par le script
 selectedId = 0
 
 # do not remenber to convert str into json 
 ###### y = json.dumps(x) ##### cf: end of this file
-def choiceSelectionWithArrow( textHistoire ,jsonArrayChoice):
+def choiceSelectionWithArrow(textHistoire , jsonArrayChoice):
     
+    pointerCaractere = "> "
+
     data = json.loads(jsonArrayChoice)
     # print(data)
 
@@ -19,8 +20,8 @@ def choiceSelectionWithArrow( textHistoire ,jsonArrayChoice):
     selectedId = None
 
     # draw text with typing effect and without effect
-    _drawText(data, indexSelection, 1)
-    _drawText(data, indexSelection, 0 , textHistoire, ">")
+    _drawText(data, indexSelection, 1, "", pointerCaractere)
+    _drawText(data, indexSelection, 0 , textHistoire, pointerCaractere)
 
 
     # affichage en boucle
@@ -34,21 +35,61 @@ def choiceSelectionWithArrow( textHistoire ,jsonArrayChoice):
             if keyboard.is_pressed("up arrow"):
                 if indexSelection > 0:
                     indexSelection -= 1
-                    _drawText(data, indexSelection, 0 , textHistoire, ">")
+                    _drawText(data, indexSelection, 0 , textHistoire, pointerCaractere)
 
                 break
             elif keyboard.is_pressed("down arrow"):
                 if indexSelection < (len(data) - 1):
                     indexSelection += 1
-                    _drawText(data, indexSelection, 0 , textHistoire, ">")
+                    _drawText(data, indexSelection, 0 , textHistoire, pointerCaractere)
 
                 break
             elif keyboard.is_pressed("enter"):
                 selectedId = data[indexSelection]["redirection_id"]
                 # _drawText(data, indexSelection, 0 , textHistoire)
-
                 break
     return selectedId
+
+
+def choiceSelectionWithDice( textHistoire , jsonArrayChoice):
+    
+    # load json file
+    data = json.loads(jsonArrayChoice)
+
+    # check and tranform the number of face 
+    nbFaceDice = int(len(data) - 1)
+
+    # draw text with typing effect
+    _drawText(data, 0, 1)
+    _drawText(data, 0, 0 , textHistoire, "")
+
+    # selection a number
+    randomNumber = random.randrange(0, nbFaceDice, 1)
+
+    # indication for player
+    # input(textWriter.writeTextWithTypingEffect("appuyer sur entrer pour lancé le super dé de la mort qui tue"))
+    textWriter.writeTextWithTypingEffect("lancer le de !")
+    keyboard.wait("enter")
+    # effect of rotative dice
+    nbCurrentRound = 0
+    nbRound = -1
+    number = [0,1,2,3,4,5,6,7,8,9]
+    while nbCurrentRound <= nbRound :
+
+        # draw text 
+        # _drawText(data, 0, 0 , textHistoire)
+        tool.clearConsole()
+        # time.sleep(0.2)
+        print(number[random.randrange(0, (len(number) - 1), 1)])
+        print("")
+
+        nbCurrentRound += 1
+
+    print("le numero est : ")
+    print(randomNumber)
+    keyboard.wait("enter")
+    tool.clearConsole()
+    return randomNumber
 
 # arrayOfProposition = text of element String[] , indexSelection = arrow position int, istypingEffect, textHistoire = prevoius history
 def _drawText(arrayOfProposition, indexSelection, isTypingEffect = 1, textHistoire = "", preTextOfCurrentSelection = ""):
@@ -82,43 +123,5 @@ def _drawText(arrayOfProposition, indexSelection, isTypingEffect = 1, textHistoi
         currentIndex += 1
 
 
-def choiceSelectionWithDice( textHistoire , jsonArrayChoice, nbFaceDice):
-
-    # check and tranform the number of face 
-    nbFaceDice = int(nbFaceDice)
-    
-    # load json file
-    data = json.loads(jsonArrayChoice)
-
-    # draw text with typing effect
-    _drawText(data, 0, 1)
-    _drawText(data, 0, 0 , textHistoire, "")
-
-    # selection a number
-    randomNumber = random.randrange(0, nbFaceDice, 1)
-
-    # indication for player
-    # input(textWriter.writeTextWithTypingEffect("appuyer sur entrer pour lancé le super dé de la mort qui tue"))
-    input(textWriter.writeTextWithTypingEffect("lancer !"))
-
-    # effect of rotative dice
-    nbCurrentRound = 0
-    nbRound = 0
-    number = [0,1,2,3,4,5,6,7,8,9]
-    while nbCurrentRound <= nbRound :
-
-        # draw text 
-        # _drawText(data, 0, 0 , textHistoire)
-        tool.clearConsole()
-        # time.sleep(0.2)
-        print(number[random.randrange(0, (len(number) - 1), 1)])
-        print("")
-
-        nbCurrentRound += 1
-
-    tool.clearConsole()
-    return randomNumber
-
-    
 
 
