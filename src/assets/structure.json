@@ -2,7 +2,7 @@
     "0": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "Hey là, {{Nom du joueur}} ! Vous êtes un étudiant en mode \"détente extrême\" dans votre sanctuaire confortable, qui se trouve être votre lit douillet.\n\nLa scène est mise en place : juste en face de vous, trône un bureau où repose fièrement votre IPhone Pro Max 20ème génération (parce que vous n'acceptez rien de moins), à gauche, une étagère débordante de mangas qui vous attendent (votre propre sanctuaire de lecture), et à droite, une porte mystérieuse qui vous appelle...\n\nMais tenez-vous bien, car ça devient encore plus excitant ! Vous êtes submergé par une vague d'énergie incroyable et vous réalisez que c'est le moment parfait pour vous lever et conquérir le monde (enfin, au moins votre coin du monde). \nPréparez-vous à l'aventure ! \uD83D\uDCA5\uD83D\uDE0E\uD83D\uDE80",
+        "question": "Hey là, {{Nom du joueur}} ! Vous êtes un étudiant en mode \"détente extrême\" dans votre sanctuaire confortable, qui se trouve être votre lit douillet.\n\nLa scène est mise en place : juste en face de vous, trône un bureau où repose fièrement votre IPhone Pro Max 20ème génération (parce que vous n'acceptez rien de moins), à gauche, une étagère débordante de mangas qui vous attendent (votre propre sanctuaire de lecture), et à droite, une porte mystérieuse qui vous appelle...\n\nMais tenez-vous bien, car ça devient encore plus excitant ! Vous êtes submergé par une vague d'énergie incroyable et vous réalisez que c'est le moment parfait pour vous lever et conquérir le monde (enfin, au moins votre coin du monde). \nPréparez-vous à l'aventure !",
         "type": "arrow",
         "choices": [
             {
@@ -18,7 +18,7 @@
     "1": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "Votre téléphone dernier cri fait étalage de ses talents en affichant fièrement l'heure : 5h00, précision ultime au rendez-vous ! Ce n'est pas seulement un téléphone, c'est une machine à voyager dans le temps (presque). ⏰\uD83D\uDE80",
+        "question": "Votre téléphone dernier cri fait étalage de ses talents en affichant fièrement l'heure : 5h00, précision ultime au rendez-vous ! Ce n'est pas seulement un téléphone, c'est une machine à voyager dans le temps (presque). ⏰",
         "type": "arrow",
         "choices": [
             {
