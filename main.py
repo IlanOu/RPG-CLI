@@ -24,16 +24,3 @@ def readPage(idPage):
 
 if __name__ == '__main__':
     start()
-
-
-# x = [
-#         {
-#             "text": "Yes",
-#             "redirection_id": "qdfdqgf"
-#         },
-#         {
-#             "text": "No",
-#             "redirection_id": "egegerS"
-#         }
-#     ]
-# e = menuSelection.choiceSelectionWithDice("blablabla", json.dumps(x), 6 )
