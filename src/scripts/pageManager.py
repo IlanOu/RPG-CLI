@@ -19,10 +19,10 @@ def getPage(question_id):
         return
     
     
-    file = open(jsonPath)
-    data = json.load(file)
-    # with open(jsonPath, 'r', encoding='utf-8') as file:
-    #     data = json.load(file)
+    # file = open(jsonPath)
+    # data = json.load(file)
+    with open(jsonPath, 'r', encoding='utf-8') as file:
+        data = json.load(file)
     
     question_id = str(question_id)
     
