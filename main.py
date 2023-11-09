@@ -17,10 +17,14 @@ def readPage(idPage):
     typeChoice = page["type"]
 
     pageManager.writeQuestion(question=question, color="white", timeout=0.01)
-    nextId = pageManager.writeChoices(typeChoice=typeChoice, choices=choices, question=question)
+    if typeChoice != "end":
+        nextId = pageManager.writeChoices(typeChoice=typeChoice, choices=choices, question=question)
 
-    readPage(nextId)
-    input("end")
+        readPage(nextId)
+        input("end")
+    else :
+        # lancer le générique de fin
+        pass
 
 if __name__ == '__main__':
     start()

@@ -83,7 +83,7 @@
         "animation_start_name": "",
         "animation_stop_name": "",
         "question": "Vous vous êtes électrocuté dans la prise. \n \"Mais quelle idée de merde j'ai eu de mettre les doigts dans la prise. Il beaucoup trop tôt pour se réveiller\"",
-        "type": "",
+        "type": "end",
         "choices": []
     },
     "6": {
@@ -170,7 +170,7 @@
         "animation_start_name": "",
         "animation_stop_name": "",
         "question": "Le voleur vous a tué. \n \"Pourquoi j'ai fait un câlin à un voleur moi ? je suis taré !\" 🔪🩸",
-        "type": "",
+        "type": "end",
         "choices": []
     },
     "11": {
@@ -193,7 +193,7 @@
         "animation_start_name": "",
         "animation_stop_name": "",
         "question": "Victoire ! Bravo vous êtes réveillé à temps ! 🎉🎒️",
-        "type": "",
+        "type": "end",
         "choices": []
     },
     "13": {
@@ -216,28 +216,28 @@
         "animation_start_name": "",
         "animation_stop_name": "",
         "question": "Vous réalisez que c'était une décision assez étrange de manger un pneu périmé depuis 11 semaines ! Mais bravo, vous avez finalement réussi à vous réveiller à temps pour vous préparer à aller travailler. 🤪🍩🕔👏🏢",
-        "type": "",
+        "type": "end",
         "choices": []
     },
     "15": {
         "animation_start_name": "",
         "animation_stop_name": "",
         "question": "Vous jetez un coup d'œil à la balance et d'un coup, vous faites une crise cardiaque en constatant que vous avez pris 5 kg. Vous êtes maintenant à 2 tonnes et 5 kilos !! 😱",
-        "type": "",
+        "type": "end",
         "choices": []
     },
     "16": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "Le poids surprenant que vous avez acquis vous joue un mauvais tour. Alors que vous montez les escaliers, vous êtes soudainement tellement lourd que vous basculez en arrière et faites une chute dans les escaliers. Une pensée vous traverse l'esprit : \"J'aurais peut-être dû aller me peser  pour connaître mon poids avant de m'aventurer dans les escaliers !\". 🏃‍♂️🚫🤯",
-        "type": "",
+        "question": "Le poids surprenant que vous avez acquis vous joue un mauvais tour. Alors que vous montez les escaliers, vous êtes soudainement tellement lourd que vous basculez en arrière et faites une chute dans les escaliers. Une pensée vous traverse l'esprit : \"J'aurais peut-être dû aller me peser pour connaître mon poids avant de m'aventurer dans les escaliers !\". 🏃‍♂️🚫🤯",
+        "type": "end",
         "choices": []
     },
     "17": {
         "animation_start_name": "",
         "animation_stop_name": "",
         "question": "<!> à définir !!! <!>",
-        "type": "",
+        "type": "end",
         "choices": []
     },
     "18": {
@@ -260,14 +260,14 @@
         "animation_start_name": "",
         "animation_stop_name": "",
         "question": "Il est 15h, et vous réalisez que vous vous êtes réveillé bien trop tard pour une journée normale. Les heures ont filé sans que vous en ayez conscience. 🕒😴😲",
-        "type": "",
+        "type": "end",
         "choices": []
     },
     "20": {
         "animation_start_name": "",
         "animation_stop_name": "",
         "question": "Vous vous réveillez avec une flaque d'urine dans le lit. La prochaine fois, pensez à acheter des couches. 👶🍼🚽",
-        "type": "",
+        "type": "end",
         "choices": []
     },
     "21": {
@@ -290,14 +290,14 @@
         "animation_start_name": "",
         "animation_stop_name": "",
         "question": "En changeant l'ampoule, vous vous électrocutez, créant un éclair inattendu dans la salle de bain.\n\"Pourquoi j'ai décidé de changer l'ampoule dans mon bain moi ?\" ⚡💡😵😅",
-        "type": "",
+        "type": "end",
         "choices": []
     },
     "23": {
         "animation_start_name": "",
         "animation_stop_name": "",
         "question": "Alors que l'eau du bain est délicieusement agréable, la somnolence vous gagne et, dans un moment de folie onirique, vous finissez par vous noyer dans votre bain. Il est 6h30, vous vous réveillez trop tôt pour aller travailler ! 🛁💤😲🌟😅",
-        "type": "",
+        "type": "end",
         "choices": []
     }
 }

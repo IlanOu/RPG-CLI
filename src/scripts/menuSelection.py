@@ -68,12 +68,20 @@ def choiceSelectionWithDice( textHistoire , jsonArrayChoice):
 
     # indication for player
     # input(textWriter.writeTextWithTypingEffect("appuyer sur entrer pour lancé le super dé de la mort qui tue"))
-    textWriter.writeTextWithTypingEffect("lancer le de !")
+    textWriter.writeTextWithTypingEffect("Lancer le dé !")
     keyboard.wait("enter")
     # effect of rotative dice
     nbCurrentRound = 0
     nbRound = -1
-    number = [0,1,2,3,4,5,6,7,8,9]
+    
+    number = []
+    pages = []
+    
+    for i in range(len(data)):
+        item = data[i]
+        number.append(i)
+        pages.append(item["redirection_id"])
+    
     while nbCurrentRound <= nbRound :
 
         # draw text 
@@ -89,7 +97,7 @@ def choiceSelectionWithDice( textHistoire , jsonArrayChoice):
     print(randomNumber)
     keyboard.wait("enter")
     tool.clearConsole()
-    return randomNumber
+    return pages[randomNumber]
 
 # arrayOfProposition = text of element String[] , indexSelection = arrow position int, istypingEffect, textHistoire = prevoius history
 def _drawText(arrayOfProposition, indexSelection, isTypingEffect = 1, textHistoire = "", preTextOfCurrentSelection = ""):
