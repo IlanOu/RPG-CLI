@@ -40,7 +40,7 @@ def _getWordTag(string):
     else:
         return (default_tag_value, string)
 
-def _normalizeSentence(string):
+def _removeRepetitiveWords(string):
     """
     Permet de normaliser la liste de mots en retirant 
     les doublons dans la liste de mots
@@ -55,6 +55,15 @@ def _normalizeSentence(string):
     
     return result_list
 
+def normalize(string):
+    """
+    Retire les balises tout en conservant le texte qu'elles englobent.
+    """
+    while re.search(r'<\d+>.*?<\/\d+>', string):
+        tag, content = _getWordTag(string)
+        string = string.replace(f'<{tag}>{content}</{tag}>', content)
+
+    return string
 
 
 # ---------------------------------------------------------------------------- #
@@ -63,7 +72,7 @@ def _normalizeSentence(string):
 
 
 def writeTextWithTypingEffect(text="", color="white", timeout=0.05):
-    words = _normalizeSentence(text)
+    words = _removeRepetitiveWords(text)
     for word in words:
         working = _typing_effect(string=_getWordTag(word)[1] + " ", timeout=timeout, multiplier=_getWordTag(word)[0], color=color)
         if working == False:

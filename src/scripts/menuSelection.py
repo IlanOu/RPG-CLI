@@ -11,7 +11,7 @@ selectedId = 0
 ###### y = json.dumps(x) ##### cf: end of this file
 def choiceSelectionWithArrow(textHistoire , jsonArrayChoice):
     
-    pointerCaractere = "> "
+    pointerCaractere = "▶ "
 
     data = json.loads(jsonArrayChoice)
     # print(data)
