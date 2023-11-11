@@ -3,6 +3,7 @@ from src.scripts import menuSelection
 import json
 from src.scripts import tools as tool
 import time
+import os
 
 
 idPageSave = 0
@@ -49,10 +50,17 @@ def getName():
     return input(">")   
 
 def savePage():
-
-    # TODO get save existing
     nbSave = []
+    
+    rootdir = 'src/saveSlots/'
+    for file in os.listdir(rootdir):
+        fileName = os.path.join(rootdir, file)
+        # print(fileName)
+        nbSave.append(fileName)
+        # if os.path.isdir(d):
 
+    
+    time.sleep(5)
     if len(nbSave) > 0:
         # TODO choice between empty slot or used slot
         print("choisis ta souvegarde ;)")
