@@ -3,6 +3,7 @@ from src.scripts import tools as tool
 import json
 import keyboard
 import random
+import time
 
 # id qui sera renvoyer par le script
 selectedId = 0
@@ -36,13 +37,13 @@ def choiceSelectionWithArrow(textHistoire , jsonArrayChoice):
                 if indexSelection > 0:
                     indexSelection -= 1
                     _drawText(data, indexSelection, 0 , textHistoire, pointerCaractere)
-
+                    time.sleep(0.2)
                 break
             elif keyboard.is_pressed("down arrow"):
                 if indexSelection < (len(data) - 1):
                     indexSelection += 1
                     _drawText(data, indexSelection, 0 , textHistoire, pointerCaractere)
-
+                    time.sleep(0.2)
                 break
             elif keyboard.is_pressed("enter"):
                 selectedId = data[indexSelection]["redirection_id"]
