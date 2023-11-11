@@ -4,54 +4,102 @@ import json
 import keyboard
 import random
 
-# id qui sera renvoyer par le script
+# Id qui sera renvoyé par le script
 selectedId = 0
 
-# do not remenber to convert str into json 
+
+
+# ---------------------------------------------------------------------------- #
+#                               Fonctions locales                              #
+# ---------------------------------------------------------------------------- #
+
+
+"""
+Permet d'écrire le texte de la page en typing effect ou non
+"""
+def _drawText(arrayOfProposition, indexSelection, isTypingEffect=1, textHistoire="", preTextOfCurrentSelection="", timeout=0.05):
+    # draw all text element
+    currentIndex = 0
+
+    # for effect of smooth choice clean console and re print the history
+    if not isTypingEffect:
+        tool.clearConsole()
+        print(textHistoire)
+
+
+    for element in arrayOfProposition:
+
+        # draw indication selection
+        if currentIndex == indexSelection:
+            preText = preTextOfCurrentSelection
+        else:
+            preText = ""
+
+            
+        # verification : is the json is correct to use it
+        if element["text"]:
+
+            # if not typing effect is for selection
+            if isTypingEffect:
+                textWriter.writeTextWithTypingEffect(text=preText + element["text"] + "\n", timeout=timeout)
+            else:
+                print(preText + element["text"] + "\n")
+
+        currentIndex += 1
+
+
+
+
+
+# ---------------------------------------------------------------------------- #
+#                   Fonctions utilisables en dehors du script                  #
+# ---------------------------------------------------------------------------- #
+
+
+
+
+# Remember to convert str into json 
 ###### y = json.dumps(x) ##### cf: end of this file
-def choiceSelectionWithArrow(textHistoire , jsonArrayChoice):
+def choiceSelectionWithArrow(textHistoire , jsonArrayChoice, timeout=0.05):
     
-    pointerCaractere = "▶ "
+    pointerCharacter = "▶ "
 
     data = json.loads(jsonArrayChoice)
-    # print(data)
 
     indexSelection = 0
     selectedId = None
 
     # draw text with typing effect and without effect
-    _drawText(data, indexSelection, 1, "", pointerCaractere)
-    _drawText(data, indexSelection, 0 , textHistoire, pointerCaractere)
+    _drawText(data, indexSelection, 1, "", pointerCharacter, timeout)
+    _drawText(data, indexSelection, 0 , textHistoire, pointerCharacter)
 
 
     # affichage en boucle
     while selectedId == None:
         
-        # draw text w/out typing effect and clear console
-        # _drawText(data, indexSelection, 0 , textHistoire)
-        
-        # test input keyboard
+        # Input keyboard
         while True:
             if keyboard.is_pressed("up arrow"):
                 if indexSelection > 0:
                     indexSelection -= 1
-                    _drawText(data, indexSelection, 0 , textHistoire, pointerCaractere)
+                    _drawText(data, indexSelection, 0 , textHistoire, pointerCharacter)
 
                 break
             elif keyboard.is_pressed("down arrow"):
                 if indexSelection < (len(data) - 1):
                     indexSelection += 1
-                    _drawText(data, indexSelection, 0 , textHistoire, pointerCaractere)
+                    _drawText(data, indexSelection, 0 , textHistoire, pointerCharacter)
 
                 break
             elif keyboard.is_pressed("enter"):
                 selectedId = data[indexSelection]["redirection_id"]
-                # _drawText(data, indexSelection, 0 , textHistoire)
                 break
     return selectedId
 
 
-def choiceSelectionWithDice( textHistoire , jsonArrayChoice):
+
+
+def choiceSelectionWithDice( textHistoire , jsonArrayChoice, timeout=0.05):
     
     # load json file
     data = json.loads(jsonArrayChoice)
@@ -60,14 +108,13 @@ def choiceSelectionWithDice( textHistoire , jsonArrayChoice):
     nbFaceDice = int(len(data) - 1)
 
     # draw text with typing effect
-    _drawText(data, 0, 1)
+    _drawText(data, 0, 1, timeout=timeout)
     _drawText(data, 0, 0 , textHistoire, "")
 
     # selection a number
     randomNumber = random.randrange(0, nbFaceDice, 1)
 
     # indication for player
-    # input(textWriter.writeTextWithTypingEffect("appuyer sur entrer pour lancé le super dé de la mort qui tue"))
     textWriter.writeTextWithTypingEffect("Lancer le dé !")
     keyboard.wait("enter")
     # effect of rotative dice
@@ -99,36 +146,8 @@ def choiceSelectionWithDice( textHistoire , jsonArrayChoice):
     tool.clearConsole()
     return pages[randomNumber]
 
-# arrayOfProposition = text of element String[] , indexSelection = arrow position int, istypingEffect, textHistoire = prevoius history
-def _drawText(arrayOfProposition, indexSelection, isTypingEffect = 1, textHistoire = "", preTextOfCurrentSelection = ""):
-    # draw all text element
-    currentIndex = 0
-
-    # for effect of smooth choice clean console and re print the history
-    if not isTypingEffect:
-        tool.clearConsole()
-        print(textHistoire)
 
 
-    for element in arrayOfProposition:
-
-        # draw indication selection
-        if currentIndex == indexSelection:
-            preText = preTextOfCurrentSelection
-        else:
-            preText = ""
-
-            
-        # verification : is the json is correct to use it
-        if element["text"]:
-
-            # if not typing effect is for selection
-            if isTypingEffect:
-                textWriter.writeTextWithTypingEffect(preText + element["text"] + "\n")
-            else:
-                print(preText + element["text"] + "\n")
-
-        currentIndex += 1
 
 
 

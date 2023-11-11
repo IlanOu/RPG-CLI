@@ -1,12 +1,17 @@
 import time
 import re
-from colorama import init as colorama_init
-from colorama import Fore
 from colorama import Style
 from src.scripts import tools as tool
 
+
+# ---------------------------------------------------------------------------- #
+#                               Fonctions locales                              #
+# ---------------------------------------------------------------------------- #
+
+
 def _typing_effect(string, timeout=0.05, multiplier=1.0, color="white"):
     """ 
+    [Fonction outil]
     Effet de typing.
     Prend en parametre :
     - le texte
@@ -28,6 +33,7 @@ def _typing_effect(string, timeout=0.05, multiplier=1.0, color="white"):
 
 def _getWordTag(string):
     """
+    [Fonction outil]
     Permet d'obtenir le contenu dans les balises et entre les balises.
     """
     patternBetween2Tags = r'<(\d+)>(.*?)<\/\1>'
@@ -42,6 +48,7 @@ def _getWordTag(string):
 
 def _removeRepetitiveWords(string):
     """
+    [Fonction outil]
     Permet de normaliser la liste de mots en retirant 
     les doublons dans la liste de mots
     """
@@ -55,15 +62,6 @@ def _removeRepetitiveWords(string):
     
     return result_list
 
-def normalize(string):
-    """
-    Retire les balises tout en conservant le texte qu'elles englobent.
-    """
-    while re.search(r'<\d+>.*?<\/\d+>', string):
-        tag, content = _getWordTag(string)
-        string = string.replace(f'<{tag}>{content}</{tag}>', content)
-
-    return string
 
 
 # ---------------------------------------------------------------------------- #
@@ -72,10 +70,35 @@ def normalize(string):
 
 
 def writeTextWithTypingEffect(text="", color="white", timeout=0.05):
+    """
+    [Fonction outil]
+    Créé un effet de machine à écrire avec un temps entre chaque lettre
+    Cette fonction prend en compte les balises pour accélerer le texte  : '<1> text </1>'
+    Cette fonction permet d'écrire en couleur
+    """
     words = _removeRepetitiveWords(text)
     for word in words:
         working = _typing_effect(string=_getWordTag(word)[1] + " ", timeout=timeout, multiplier=_getWordTag(word)[0], color=color)
         if working == False:
             break
+        
+def writeTextWithoutTypingEffect(text, color):
+    print(tool.getColor(color), text, flush=True)
+    print(Style.RESET_ALL, flush=False)
+        
+        
+def normalize(string):
+    """
+    [Fonction outil]
+    Retire les balises tout en conservant le texte qu'elles englobent.
+    """
+    while re.search(r'<\d+>.*?<\/\d+>', string):
+        tag, content = _getWordTag(string)
+        string = string.replace(f'<{tag}>{content}</{tag}>', content)
 
-# TODO writeTextWithNormalEffect and normalize sentence
+    return string
+
+def writeEndGame():
+    text = "\n\nVous avez terminé notre jeu ! \nMerci d'avoir joué !\nN'hésitez pas à rejouer car il y a plusieurs façon de terminer le jeu...\n\n"
+    writeTextWithTypingEffect(text, "green", 0.05)
+    input()
