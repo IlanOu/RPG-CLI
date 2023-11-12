@@ -21,6 +21,7 @@ END_MD = "./adventure.md"
 def start():
     global pseudo, level
 
+    save.clearXML(GAME_XML)
     pageManager.setPath(STRUCTURE_JSON)
     # get the current id of page in function of save
     idPageSave = savePage()
@@ -29,6 +30,8 @@ def start():
         pseudo = getName()
         level = getLevel()
 
+    save.saveToXML(GAME_XML, pseudo, "Player_name")
+    save.saveToXML(GAME_XML, level, "Level")
     readPage(idPageSave)
     
     

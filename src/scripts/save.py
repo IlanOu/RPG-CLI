@@ -3,6 +3,16 @@ import os
 import json
 
 
+def clearXML(filename):
+    if os.path.exists(filename) and os.stat(filename).st_size > 0:
+        # Charger le fichier XML existant
+        tree = ET.parse(filename)
+        root = tree.getroot()
+        children = list(root)
+        for item in children:
+            root.remove(item)
+        tree.write(filename)
+
 
 def saveToXML(filename, text, row):
     
@@ -11,9 +21,9 @@ def saveToXML(filename, text, row):
         # Charger le fichier XML existant
         tree = ET.parse(filename)
         root = tree.getroot()
-        children = list(root)
-        for item in children:
-            root.remove(item)
+        # children = list(root)
+        # for item in children:
+        #     root.remove(item)
     else:
         # Le fichier n'existe pas ou est vide, créer un nouvel élément racine
         root = ET.Element("racine")
