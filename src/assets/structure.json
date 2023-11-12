@@ -117,27 +117,27 @@
         "win": null,
         "choices": [
             {
-                "text": "Tu perd, tu meurs",
+                "text": "1 - Tu as perdu la partie.",
                 "redirection_id": "17"
             },
             {
-                "text": "Tu gagnes tu continue",
+                "text": "2 - Tu as gagné la partie.",
                 "redirection_id": "18"
             },
             {
-                "text": "Tu perd, tu meurs",
+                "text": "3 - Tu as perdu la partie.",
                 "redirection_id": "17"
             },
             {
-                "text": "Tu gagnes tu continue",
+                "text": "4 - Tu as gagné la partie.",
                 "redirection_id": "18"
             },
             {
-                "text": "Tu perd, tu meurs",
+                "text": "5 - Tu as perdu la partie.",
                 "redirection_id": "17"
             },
             {
-                "text": "Tu gagnes tu continue",
+                "text": "6 - Tu as gagné la partie.",
                 "redirection_id": "18"
             }
         ]

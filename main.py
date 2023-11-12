@@ -35,18 +35,17 @@ def start():
     readPage(idPageSave)
     
     
-    # pagesSaved = save.readFromJSON(PROGRESS_JSON)["idPages"]
+    pagesSaved = save.readFromJSON(PROGRESS_JSON)["idPages"]
     
-    # content = []
-    # for pageID in pagesSaved:
-    #     content.append(pageManager.getPage(pageID))
+    content = []
+    for pageID in pagesSaved:
+        content.append({"page": pageManager.getPage(pageID), "id": pageID})
 
-    # MDcontent = save.constructMarkdownFile(content)
-    # save.saveInMarkdown(END_MD, MDcontent)
-        
-    # save.clearJSON(PROGRESS_JSON)
-    return
-    save.saveToXML(GAME_XML, "Jean Claude", "Player_name")
+    MDcontent = save.constructMarkdownFile(content)
+    save.saveInMarkdown(END_MD, MDcontent)
+    save.clearJSON(PROGRESS_JSON)
+    
+
 
 def getLevel():
     tool.clearConsole()

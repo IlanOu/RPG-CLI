@@ -80,20 +80,30 @@ def clearJSON(filename):
 
 def constructMarkdownFile(contentList):
     questionsList = []
-    choicesList = []
 
     for page in contentList:
-        questionsList.append(page["question"])
-        choicesList.append(page["choices"])
+        page_id = page["id"]
+        page = page["page"]
+        questionsList.append({"page_id": page_id, "question": page["question"], "choices": page["choices"]})
 
     # Construction de la chaîne de texte Markdown
     markdown_text = "# Titre principal\n\n## Votre aventure s'est déroulée de cette façon :\n\n"
     
     for item in questionsList:
-        markdown_text += f"- {item}\n"
-        for choice in choicesList:
-            choiceText = choice[0]['text']
-            markdown_text += f"    - {choiceText}\n"
+        markdown_text += f"- {item['question']}\n"
+        print(item)
+        for choice in item['choices']:
+            if len(choice) > 0:
+                nextPage = questionsList[questionsList.index(item) + 1]
+                choiceText = choice['text']
+                if nextPage:
+                    if choice["redirection_id"] == nextPage["page_id"]:
+                        markdown_text += f"    - <u>{choiceText}</u>\n"
+                    else:
+                        markdown_text += f"    - {choiceText}\n"
+                else:
+                        markdown_text += f"    - {choiceText}\n"
+                
 
     return markdown_text
 
