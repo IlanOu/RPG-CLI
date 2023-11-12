@@ -22,10 +22,12 @@ def _drawText(arrayOfProposition, indexSelection, isTypingEffect=1, textHistoire
     # draw all text element
     currentIndex = 0
 
+    color = textWriter.getTextColor()
+
     # for effect of smooth choice clean console and re print the history
     if not isTypingEffect:
         tool.clearConsole()
-        print(textHistoire)
+        textWriter.writeTextWithoutTypingEffect(textHistoire, color=color)
 
 
     for element in arrayOfProposition:
@@ -42,9 +44,9 @@ def _drawText(arrayOfProposition, indexSelection, isTypingEffect=1, textHistoire
 
             # if not typing effect is for selection
             if isTypingEffect:
-                textWriter.writeTextWithTypingEffect(text=preText + element["text"] + "\n", timeout=timeout)
+                textWriter.writeTextWithTypingEffect(text=preText + element["text"] + "\n", timeout=timeout, color=color)
             else:
-                print(preText + element["text"] + "\n")
+                textWriter.writeTextWithoutTypingEffect(preText + element["text"] + "\n", color=color)
 
         currentIndex += 1
 
@@ -61,7 +63,7 @@ def _drawText(arrayOfProposition, indexSelection, isTypingEffect=1, textHistoire
 
 # Remember to convert str into json 
 ###### y = json.dumps(x) ##### cf: end of this file
-def choiceSelectionWithArrow(textHistoire , jsonArrayChoice, timeout=0.05):
+def choiceSelectionWithArrow(textHistoire , jsonArrayChoice, timeout=0.05, color='white'):
     
     pointerCharacter = "▶ "
     
@@ -146,14 +148,14 @@ def choiceSelectionWithDice( textHistoire , jsonArrayChoice, timeout=0.05):
         # _drawText(data, 0, 0 , textHistoire)
         tool.clearConsole()
         # time.sleep(0.2)
-        print(number[random.randrange(0, (len(number) - 1), 1)])
+        textWriter.writeTextWithoutTypingEffect(number[random.randrange(0, (len(number) - 1), 1)])
         print("")
 
         nbCurrentRound += 1
 
-    print("le numero est : ")
-    print(randomNumber)
-    print("appuyer sur entrer pour continuer")
+    textWriter.writeTextWithTypingEffect("Le numero est : ")
+    textWriter.writeTextWithoutTypingEffect(randomNumber)
+    textWriter.writeTextWithoutTypingEffect("Appuyer sur entrer pour continuer")
     keyboard.wait("enter")
     tool.clearConsole()
     return pages[randomNumber]

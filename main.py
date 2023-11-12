@@ -21,14 +21,26 @@ END_MD = "./adventure.md"
 def start():
     global pseudo, level
 
+    # printText.setTextColor("black")
+    # printText.writeTextWithoutTypingEffect("Ceci est un test", printText.getTextColor())
+
+
     save.clearXML(GAME_XML)
     pageManager.setPath(STRUCTURE_JSON)
     # get the current id of page in function of save
     idPageSave = savePage()
 
+
     if idPageSave == 0:
         pseudo = getName()
         level = getLevel()
+
+        if int(level) == 1:
+            printText.setTextColor("gray")
+        elif int(level) == 2:
+            printText.setTextColor("black")
+        else:
+            printText.setTextColor("white")
 
     save.saveToXML(GAME_XML, pseudo, "Player_name")
     save.saveToXML(GAME_XML, level, "Level")
@@ -65,13 +77,13 @@ def getLevel():
             }
         ]
 
-    pageManager.writeQuestion(question="Choisis ton niveau de difficulté ", color="white", timeout=0.01)
+    pageManager.writeQuestion(question="Choisis ton niveau de difficulté ", timeout=0.01, color=printText.getTextColor())
     return pageManager.writeChoices(typeChoice="arrow", choices=levelChoices, question="Choisis ton niveau de difficulté ")
 
 def getName():
     tool.clearConsole()
 
-    pageManager.writeQuestion(question="C'est quoi ton joli ptit nom ?", color="white", timeout=0.01)
+    pageManager.writeQuestion(question="C'est quoi ton joli ptit nom ?", timeout=0.01, color=printText.getTextColor())
     input('')
     name = input(">")
     return name
@@ -84,7 +96,6 @@ def savePage():
     rootdir = 'src/assets/saves/'
     for file in os.listdir(rootdir):
         fileName = os.path.join(rootdir, file)
-        # print(fileName)
         # ! limit to 1 savesFile for not multiple progress json => but it's can be a feature
         if file != ".gitkeep" and len(savesFile) < 1:
             savesFile.append({
@@ -104,14 +115,13 @@ def savePage():
     idSaveSelected = selectSaves(savesFile)
     return idSaveSelected
 
-# select Saves
 def selectSaves(savesFile):
     
     # already have a save
     if len(savesFile) > 0:
         ##### get selection #####
         question_choice_save = "Choisis ta sauvegarde ;)"
-        pageManager.writeQuestion(question=question_choice_save, color="white", timeout=0.05)
+        pageManager.writeQuestion(question=question_choice_save, timeout=0.05)
         idSave = pageManager.writeChoices(typeChoice="arrow", choices=savesFile, question=question_choice_save, timeout=0.001)
 
         ##### Detect if Save is not finish if the selection is not new save #####
@@ -126,7 +136,7 @@ def selectSaves(savesFile):
                 time.sleep(1)
                 return idLastPage
             else:
-                pageManager.writeQuestion(question="Oh oh... :/ Votre ancienne partie est déjà fini on dirait ...", color="white", timeout=0.05)
+                pageManager.writeQuestion(question="Oh oh... :/ Votre ancienne partie est déjà fini on dirait ...", timeout=0.05, color=printText.getTextColor())
                 time.sleep(1)
                 pageManager.writeQuestion(question="Selectionnez un autre choix ^^", color="red", timeout=0.05)
                 time.sleep(1)
@@ -136,7 +146,7 @@ def selectSaves(savesFile):
             # new page
             return 0
     else:
-        pageManager.writeQuestion(question="Creation d'une nouvelle sauvegarde ...", color="white", timeout=0.05)
+        pageManager.writeQuestion(question="Creation d'une nouvelle sauvegarde ...", timeout=0.05, color=printText.getTextColor())
         time.sleep(1)
         return 0
 
@@ -144,7 +154,6 @@ def readPage(idPage):
     tool.clearConsole()
 
     page = pageManager.getPage(idPage)
-    # print(page)
     question = page["question"]
     choices = page["choices"]
     typeChoice = page["type"]
@@ -152,7 +161,7 @@ def readPage(idPage):
 
     
     if typeChoice != "end":
-        pageManager.writeQuestion(question=question, color="white", timeout=0.01)
+        pageManager.writeQuestion(question=question, timeout=0.01, color=printText.getTextColor())
         nextId = pageManager.writeChoices(typeChoice=typeChoice, choices=choices, question=question, timeout=0.01)
         
         

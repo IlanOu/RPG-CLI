@@ -91,7 +91,6 @@ def constructMarkdownFile(contentList):
     
     for item in questionsList:
         markdown_text += f"- {item['question']}\n"
-        print(item)
         for choice in item['choices']:
             if len(choice) > 0:
                 nextPage = questionsList[questionsList.index(item) + 1]

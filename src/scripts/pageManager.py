@@ -8,7 +8,6 @@ from src.scripts import menuSelection
 jsonPath = ''
 
 
-
 def setPath(path):
     """
     Met à jour le json path
@@ -49,14 +48,14 @@ def getPage(question_id):
 
 
 
-def writeQuestion(question, color="white", timeout=0.05):
+def writeQuestion(question, color=printText.getTextColor(), timeout=0.05):
     """
     Permet d'écrire uniquement la question
     """
     
     printText.writeTextWithTypingEffect(text=question, color=color, timeout=timeout)
     print()
-    print("============================================================")
+    printText.writeTextWithoutTypingEffect("============================================================", color=color)
 
 
 

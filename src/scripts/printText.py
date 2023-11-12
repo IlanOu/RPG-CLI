@@ -4,12 +4,22 @@ from colorama import Style
 from src.scripts import tools as tool
 
 
+text_color = "white"
+
+def getTextColor():
+    return text_color
+
+def setTextColor(color):
+    global text_color
+    text_color = color
+
+
 # ---------------------------------------------------------------------------- #
 #                               Fonctions locales                              #
 # ---------------------------------------------------------------------------- #
 
 
-def _typing_effect(string, timeout=0.05, multiplier=1.0, color="white"):
+def _typing_effect(string, timeout=0.05, multiplier=1.0, color='white'):
     """ 
     [Fonction outil]
     Effet de typing.
@@ -25,8 +35,9 @@ def _typing_effect(string, timeout=0.05, multiplier=1.0, color="white"):
     else:
         return False
     
+    print(tool.getColor(color), end="", flush=True)
     for i in string:
-        print(tool.getColor(color) + i, end="", flush=True)
+        print(i, end="", flush=True)
         time.sleep(timeout * float(multiplier))
     print(Style.RESET_ALL, end="", flush=True)
 
@@ -69,7 +80,7 @@ def _removeRepetitiveWords(string):
 # ---------------------------------------------------------------------------- #
 
 
-def writeTextWithTypingEffect(text="", color="white", timeout=0.05):
+def writeTextWithTypingEffect(text="", color='white', timeout=0.05):
     """
     [Fonction outil]
     Créé un effet de machine à écrire avec un temps entre chaque lettre
@@ -82,7 +93,7 @@ def writeTextWithTypingEffect(text="", color="white", timeout=0.05):
         if working == False:
             break
         
-def writeTextWithoutTypingEffect(text, color):
+def writeTextWithoutTypingEffect(text="", color='white'):
     print(tool.getColor(color), text, flush=True)
     print(Style.RESET_ALL, flush=False)
         
@@ -102,3 +113,5 @@ def writeEndGame():
     text = "\n\nVous avez terminé notre jeu ! \nMerci d'avoir joué !\nN'hésitez pas à rejouer car il y a plusieurs façon de terminer le jeu...\n\n"
     writeTextWithTypingEffect(text, "green", 0.05)
     input()
+    
+    

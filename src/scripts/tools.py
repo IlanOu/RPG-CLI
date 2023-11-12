@@ -3,7 +3,7 @@
 # ---------------------------------------------------------------------------- #
 
 from colorama import init as colorama_init
-from colorama import Fore
+from colorama import Fore, Back
 from colorama import Style
 
 colorama_init()
@@ -58,6 +58,8 @@ def getColor(colorName):
         return Fore.LIGHTGREEN_EX
     elif colorName == "black":
         return Fore.BLACK
+    elif colorName == "gray":
+        return Back.WHITE
     else:
         #? Gestion d'erreur
         logError("Unknown color : " + colorName)
