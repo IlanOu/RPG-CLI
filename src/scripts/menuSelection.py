@@ -67,7 +67,7 @@ def choiceSelectionWithArrow(textHistoire , jsonArrayChoice, timeout=0.05):
 
     data = json.loads(jsonArrayChoice)
     
-    textWriter.writeTextWithoutTypingEffect(data, "yellow")
+    # textWriter.writeTextWithoutTypingEffect(data, "yellow")
     
     indexSelection = 0
     selectedId = None
