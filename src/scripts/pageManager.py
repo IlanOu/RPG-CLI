@@ -56,7 +56,7 @@ def writeQuestion(question, color="white", timeout=0.05):
     
     printText.writeTextWithTypingEffect(text=question, color=color, timeout=timeout)
     print()
-    # print("-------------------------")
+    print("============================================================")
 
 
 

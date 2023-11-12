@@ -83,7 +83,7 @@ def savePage():
     for file in os.listdir(rootdir):
         fileName = os.path.join(rootdir, file)
         # print(fileName)
-        # ! limit to 1 savesFile for not multiple progress json => but it's can be a features
+        # ! limit to 1 savesFile for not multiple progress json => but it's can be a feature
         if file != ".gitkeep" and len(savesFile) < 1:
             savesFile.append({
                 "text": file,
@@ -108,7 +108,7 @@ def selectSaves(savesFile):
     # already have a save
     if len(savesFile) > 0:
         ##### get selection #####
-        question_choice_save = "choisis ta souvegarde ;)"
+        question_choice_save = "Choisis ta sauvegarde ;)"
         pageManager.writeQuestion(question=question_choice_save, color="white", timeout=0.05)
         idSave = pageManager.writeChoices(typeChoice="arrow", choices=savesFile, question=question_choice_save, timeout=0.001)
 
@@ -124,7 +124,7 @@ def selectSaves(savesFile):
                 time.sleep(1)
                 return idLastPage
             else:
-                pageManager.writeQuestion(question="ho ho :/ votre ancienne partie est déjà fini on dirait ...", color="white", timeout=0.05)
+                pageManager.writeQuestion(question="Oh oh... :/ Votre ancienne partie est déjà fini on dirait ...", color="white", timeout=0.05)
                 time.sleep(1)
                 pageManager.writeQuestion(question="Selectionnez un autre choix ^^", color="red", timeout=0.05)
                 time.sleep(1)
@@ -134,7 +134,7 @@ def selectSaves(savesFile):
             # new page
             return 0
     else:
-        pageManager.writeQuestion(question="creation d'une nouvelle sauvegarde ...", color="white", timeout=0.05)
+        pageManager.writeQuestion(question="Creation d'une nouvelle sauvegarde ...", color="white", timeout=0.05)
         time.sleep(1)
         return 0
 

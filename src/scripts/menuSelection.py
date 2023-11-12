@@ -64,10 +64,11 @@ def _drawText(arrayOfProposition, indexSelection, isTypingEffect=1, textHistoire
 def choiceSelectionWithArrow(textHistoire , jsonArrayChoice, timeout=0.05):
     
     pointerCharacter = "▶ "
+    
+    textHistoire += "\n============================================================"
+    
 
     data = json.loads(jsonArrayChoice)
-    
-    # textWriter.writeTextWithoutTypingEffect(data, "yellow")
     
     indexSelection = 0
     selectedId = None
@@ -100,6 +101,8 @@ def choiceSelectionWithArrow(textHistoire , jsonArrayChoice, timeout=0.05):
             elif keyboard.is_pressed("enter"):
                 selectedId = data[indexSelection]["redirection_id"]
                 break
+            
+            
     return selectedId
 
 
@@ -109,6 +112,8 @@ def choiceSelectionWithDice( textHistoire , jsonArrayChoice, timeout=0.05):
     
     # load json file
     data = json.loads(jsonArrayChoice)
+
+    textHistoire += "\n============================================================"
 
     # check and tranform the number of face 
     nbFaceDice = int(len(data) - 1)
