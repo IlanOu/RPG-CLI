@@ -98,21 +98,27 @@ def readPage(idPage):
     tool.clearConsole()
 
     page = pageManager.getPage(idPage)
-    print(page)
+    # print(page)
     question = page["question"]
     choices = page["choices"]
     typeChoice = page["type"]
+    winPage = page["win"]
 
-    pageManager.writeQuestion(question=question, color="white", timeout=0.001)
     
     if typeChoice != "end":
-        nextId = pageManager.writeChoices(typeChoice=typeChoice, choices=choices, question=question, timeout=0.001)
+        pageManager.writeQuestion(question=question, color="white", timeout=0.01)
+        nextId = pageManager.writeChoices(typeChoice=typeChoice, choices=choices, question=question, timeout=0.01)
         
         
         #& ---------- JSON Save ----------
         save.saveToJSON(PROGRESS_JSON, nextId)
         readPage(nextId)
     else :
+        if winPage == True:
+            pageManager.writeQuestion(question=question, color="green", timeout=0.01)
+        elif winPage == False:
+            pageManager.writeQuestion(question=question, color="red", timeout=0.01)
+        time.sleep(3)
         printText.writeEndGame()
         pass
 

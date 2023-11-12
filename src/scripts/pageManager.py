@@ -56,6 +56,7 @@ def writeQuestion(question, color="white", timeout=0.05):
     
     printText.writeTextWithTypingEffect(text=question, color=color, timeout=timeout)
     print()
+    print("-------------------------")
 
 
 
@@ -63,7 +64,6 @@ def writeChoices(typeChoice, choices , question, timeout=0.05):
     """
     Permet d'écrire uniquement les choix
     """
-    
     if typeChoice == "arrow":
         return menuSelection.choiceSelectionWithArrow( question , json.dumps(choices), timeout)
     elif typeChoice == "dice":

@@ -66,10 +66,13 @@ def choiceSelectionWithArrow(textHistoire , jsonArrayChoice, timeout=0.05):
     pointerCharacter = "▶ "
 
     data = json.loads(jsonArrayChoice)
-
+    
+    textWriter.writeTextWithoutTypingEffect(data, "yellow")
+    
     indexSelection = 0
     selectedId = None
 
+    
     # draw text with typing effect and without effect
     _drawText(data, indexSelection, 1, "", pointerCharacter, timeout)
     _drawText(data, indexSelection, 0 , textHistoire, pointerCharacter)

@@ -4,6 +4,7 @@
         "animation_stop_name": "",
         "question": "Hey là, {{Nom du joueur}} ! Vous êtes un étudiant en mode \"détente extrême\" dans votre sanctuaire confortable, qui se trouve être votre lit douillet.\n\nLa scène est mise en place : juste en face de vous, trône un bureau où repose fièrement votre IPhone Pro Max 20ème génération (parce que vous n'acceptez rien de moins), à gauche, une étagère débordante de mangas qui vous attendent (votre propre sanctuaire de lecture), et à droite, une porte mystérieuse qui vous appelle...\n\nMais tenez-vous bien, car ça devient encore plus excitant ! Vous êtes submergé par une vague d'énergie incroyable et vous réalisez que c'est le moment parfait pour vous lever et conquérir le monde (enfin, au moins votre coin du monde). \nPréparez-vous à l'aventure ! \uD83D\uDCA5\uD83D\uDE0E\uD83D\uDE80",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Regarder l'heure sur votre IPhone Pro Max 20ème génération :",
@@ -20,6 +21,7 @@
         "animation_stop_name": "",
         "question": "Votre téléphone dernier cri fait étalage de ses talents en affichant fièrement l'heure : 5h00, précision ultime au rendez-vous ! Ce n'est pas seulement un téléphone, c'est une machine à voyager dans le temps (presque). ⏰\uD83D\uDE80",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Re-regarder l'heure sur votre IPhone Pro Max 20ème génération parce qu'il donne vachement bien l'heure quand même :",
@@ -36,6 +38,7 @@
         "animation_stop_name": "",
         "question": "Vous êtes dans le couloir, et une sensation de faim tenaille votre estomac. 🚶‍♂️🤤🏡",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Descendre pour trouver de quoi manger. Vous êtes prêt à satisfaire votre appétit. 🍽️🚶‍♂️😋",
@@ -48,6 +51,7 @@
         "animation_stop_name": "",
         "question": "Wow, le temps passe super vite ! 😯⌚",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Mettre les doigts dans la prise",
@@ -64,6 +68,7 @@
         "animation_stop_name": "",
         "question": "Des bruits étranges et super flippant résonnent depuis l'escalier du bas, rompant le silence de la pièce. 🔊🚶‍♀️👂",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Retourner se cacher dans la chambre. 🛏️🚪🙈🏃‍♂️",
@@ -82,8 +87,9 @@
     "5": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "Vous vous êtes électrocuté dans la prise. \n \"Mais quelle idée de merde j'ai eu de mettre les doigts dans la prise. Il beaucoup trop tôt pour se réveiller\"",
+        "question": "Vous vous êtes électrocuté dans la prise. Il est 5h30. \n \"Mais quelle idée de merde j'ai eu de mettre les doigts dans la prise. Il beaucoup trop tôt pour se réveiller\"",
         "type": "end",
+        "win": false,
         "choices": []
     },
     "6": {
@@ -91,6 +97,7 @@
         "animation_stop_name": "",
         "question": "Dans la chambre, quelqu'un frappe à la porte. Vous décidez d'ouvrir la porte, mais à votre grande surprise, vous vous retrouvez nez à nez avec un voleur, les yeux écarquillés. Une nouvelle tournure inattendue dans cette journée pleine de rebondissements ! 🔒🚪😲",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Vous neutralisez le voleur 🦸‍♂️🔪👍",
@@ -107,6 +114,7 @@
         "animation_stop_name": "",
         "question": "Dans un coin de la pièce, un groupe de jeunes stripteaseuses vous invite à jouer à une partie de Puissance 4. Leur enthousiasme est contagieux, et vous ne pouvez résister à l'envie de relever le défi. Vous les regardez avec intérêt, prêt à vous mesurer à l'une d'entre elles dans une partie de Puissance 4 épique. Le jeu commence, et l'aventure est sur le point de s'engager ! 🎲😃👩🏻👩🏼👩🏽👩🏾👩🏿",
         "type": "dice",
+        "win": null,
         "choices": [
             {
                 "text": "Tu perd, tu meurs",
@@ -139,6 +147,7 @@
         "animation_stop_name": "",
         "question": "Vous êtes dans la salle de bain vous avez le choix entre aller aux toilettes ou prendre un bain.",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Aller aux toilettes ",
@@ -155,6 +164,7 @@
         "animation_stop_name": "",
         "question": "D'une atrocité sans pareil, vous avez réussi à tuer le voleur. D'un coup, une pensée vous traverse l'esprit : 'Je meurs de faim.' 🦸‍♂️🔪😋😯",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Descendre manger dans le salon ",
@@ -169,8 +179,9 @@
     "10": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "Le voleur vous a tué. \n \"Pourquoi j'ai fait un câlin à un voleur moi ? je suis taré !\" 🔪🩸",
+        "question": "Vous vous réveillez, il est 6h00. Le voleur vous a tué.\n \"Pourquoi j'ai fait un câlin à un voleur moi ? je suis taré !\" 🔪🩸",
         "type": "end",
+        "win": false,
         "choices": []
     },
     "11": {
@@ -178,6 +189,7 @@
         "animation_stop_name": "",
         "question": "La faim vous tenaille, et devant vous, une table garnie de desserts vous tente. Vous avez le choix entre un délicieux cookie à la pistache, frais et appétissant, ou un mystérieux pneu datant d'il y a 11 semaines. Quel sera votre choix ? 🍪😋🍽️",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Manger le cookie qui a l'air délicieux 🍪",
@@ -192,8 +204,9 @@
     "12": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "Victoire ! Bravo vous êtes réveillé à temps ! 🎉🎒️",
+        "question": "Il est 7h. Victoire ! Bravo vous êtes réveillé à temps ! 🎉🎒️",
         "type": "end",
+        "win": true,
         "choices": []
     },
     "13": {
@@ -201,6 +214,7 @@
         "animation_stop_name": "",
         "question": "Ce cookie, bien que délicieux, se révèle être plus consistant que prévu. Chaque bouchée offre un mélange de saveurs riche et satisfaisant, mais il remplit rapidement votre estomac. Vous vous sentez maintenant rassasié, prêt pour la prochaine étape de votre aventure. 🍪😅👍",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Se rendre à la balance pour vérifier les conséquences sur votre poids ⚖️",
@@ -215,22 +229,25 @@
     "14": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "Vous réalisez que c'était une décision assez étrange de manger un pneu périmé depuis 11 semaines ! Mais bravo, vous avez finalement réussi à vous réveiller à temps pour vous préparer à aller travailler. 🤪🍩🕔👏🏢",
+        "question": "Il est 7h30. Vous réalisez que c'était une décision assez étrange de manger un pneu périmé depuis 11 semaines ! Mais bravo, vous avez finalement réussi à vous réveiller à temps pour vous préparer à aller travailler. 🤪🍩🕔👏🏢",
         "type": "end",
+        "win": true,
         "choices": []
     },
     "15": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "Vous jetez un coup d'œil à la balance et d'un coup, vous faites une crise cardiaque en constatant que vous avez pris 5 kg. Vous êtes maintenant à 2 tonnes et 5 kilos !! 😱",
+        "question": "Il est 8h. Vous jetez un coup d'œil à la balance et d'un coup, vous faites une crise cardiaque en constatant que vous avez pris 5 kg. Vous êtes maintenant à 2 tonnes et 5 kilos !! 😱",
         "type": "end",
+        "win": false,
         "choices": []
     },
     "16": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "Le poids surprenant que vous avez acquis vous joue un mauvais tour. Alors que vous montez les escaliers, vous êtes soudainement tellement lourd que vous basculez en arrière et faites une chute dans les escaliers. Une pensée vous traverse l'esprit : \"J'aurais peut-être dû aller me peser pour connaître mon poids avant de m'aventurer dans les escaliers !\". 🏃‍♂️🚫🤯",
+        "question": "Il est 8h. Le poids surprenant que vous avez acquis vous joue un mauvais tour. Alors que vous montez les escaliers, vous êtes soudainement tellement lourd que vous basculez en arrière et faites une chute dans les escaliers. Une pensée vous traverse l'esprit : \"J'aurais peut-être dû aller me peser pour connaître mon poids avant de m'aventurer dans les escaliers !\". 🏃‍♂️🚫🤯",
         "type": "end",
+        "win": false,
         "choices": []
     },
     "17": {
@@ -238,6 +255,7 @@
         "animation_stop_name": "",
         "question": "La partie s'est terminée pour vous avec une défaite au Puissance 4 contre l'une des filles. Cette défaite vous rend tellement mal qu'elle vous réveille. Vous dormiez, tout n'était qu'un rêve mais il est seulement 6h du matin, trop tôt pour se réveiller !",
         "type": "end",
+        "win": false,
         "choices": []
     },
     "18": {
@@ -245,6 +263,7 @@
         "animation_stop_name": "",
         "question": "Félicitations, vous avez triomphé dans une partie enflammée de Puissance 4 contre l'une des filles. Maintenant, l'avenir est entre vos mains. Allez-vous satisfaire votre appétit en allant manger ou suivre la mystérieuse fille dans la chambre pour une aventure inattendue ? Le choix est vôtre, et l'excitation monte ! 🎉🍽️💫🛏️😏",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Aller manger",
@@ -261,13 +280,15 @@
         "animation_stop_name": "",
         "question": "Il est 15h, et vous réalisez que vous vous êtes réveillé bien trop tard pour une journée normale. Les heures ont filé sans que vous en ayez conscience. 🕒😴😲",
         "type": "end",
+        "win": false,
         "choices": []
     },
     "20": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "Vous vous réveillez avec une flaque d'urine dans le lit. La prochaine fois, pensez à acheter des couches. 👶🍼🚽",
+        "question": "Il est 6h30. Vous vous réveillez avec une flaque d'urine dans le lit. La prochaine fois, pensez à acheter des couches. 👶🍼🚽",
         "type": "end",
+        "win": false,
         "choices": []
     },
     "21": {
@@ -275,6 +296,7 @@
         "animation_stop_name": "",
         "question": "La lumière vacille, créant une atmosphère intrigante dans la salle de bain. 🕯🛁👻",
         "type": "arrow",
+        "win": null,
         "choices": [
             {
                 "text": "Il est temps de changer l'ampoule 🕯💡🛁😅",
@@ -289,15 +311,17 @@
     "22": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "En changeant l'ampoule, vous vous électrocutez, créant un éclair inattendu dans la salle de bain.\n\"Pourquoi j'ai décidé de changer l'ampoule dans mon bain moi ?\" ⚡💡😵😅",
+        "question": "Il est 6h30. En changeant l'ampoule, vous vous électrocutez, créant un éclair inattendu dans la salle de bain.\n\"Pourquoi j'ai décidé de changer l'ampoule dans mon bain moi ?\" ⚡💡😵😅",
         "type": "end",
+        "win": false,
         "choices": []
     },
     "23": {
         "animation_start_name": "",
         "animation_stop_name": "",
-        "question": "Alors que l'eau du bain est délicieusement agréable, la somnolence vous gagne et, dans un moment de folie onirique, vous finissez par vous noyer dans votre bain. Il est 6h30, vous vous réveillez trop tôt pour aller travailler ! 🛁💤😲🌟😅",
+        "question": "Il est 6h30. Alors que l'eau du bain est délicieusement agréable, la somnolence vous gagne et, dans un moment de folie onirique, vous finissez par vous noyer dans votre bain. Il est 6h30, vous vous réveillez trop tôt pour aller travailler ! 🛁💤😲🌟😅",
         "type": "end",
+        "win": false,
         "choices": []
     }
 }
