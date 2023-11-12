@@ -4,7 +4,6 @@ from src.scripts import tools as tool
 from src.scripts import menuSelection
 
 
-
 jsonPath = ''
 
 
@@ -52,6 +51,8 @@ def writeQuestion(question, color=printText.getTextColor(), timeout=0.05):
     """
     Permet d'écrire uniquement la question
     """
+    
+     
     
     printText.writeTextWithTypingEffect(text=question, color=color, timeout=timeout)
     print()

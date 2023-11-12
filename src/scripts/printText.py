@@ -113,5 +113,3 @@ def writeEndGame():
     text = "\n\nVous avez terminé notre jeu ! \nMerci d'avoir joué !\nN'hésitez pas à rejouer car il y a plusieurs façon de terminer le jeu...\n\n"
     writeTextWithTypingEffect(text, "green", 0.05)
     input()
-    
-    

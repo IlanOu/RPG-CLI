@@ -6,6 +6,9 @@ from colorama import init as colorama_init
 from colorama import Fore, Back
 from colorama import Style
 
+from src.scripts import pageManager
+from src.scripts import printText
+
 colorama_init()
 
 def logError(message):
@@ -64,3 +67,33 @@ def getColor(colorName):
         #? Gestion d'erreur
         logError("Unknown color : " + colorName)
         return None
+
+
+def getLevel():
+    clearConsole()
+
+    levelChoices = [
+            {
+                "text": "Easy",
+                "redirection_id": "0"
+            },
+            {
+                "text": "Normal",
+                "redirection_id": "1"
+            },
+            {
+                "text": "Hard",
+                "redirection_id": "2"
+            }
+        ]
+
+    pageManager.writeQuestion(question="Choisis ton niveau de difficulté ", timeout=0.01, color=printText.getTextColor())
+    return pageManager.writeChoices(typeChoice="arrow", choices=levelChoices, question="Choisis ton niveau de difficulté ")
+
+def getName():
+    clearConsole()
+
+    pageManager.writeQuestion(question="C'est quoi ton joli ptit nom ?", timeout=0.01, color=printText.getTextColor())
+    input('')
+    name = input(">")
+    return name

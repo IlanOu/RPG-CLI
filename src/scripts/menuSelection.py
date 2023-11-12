@@ -15,6 +15,7 @@ selectedId = 0
 # ---------------------------------------------------------------------------- #
 
 
+
 """
 Permet d'écrire le texte de la page en typing effect ou non
 """
@@ -38,7 +39,6 @@ def _drawText(arrayOfProposition, indexSelection, isTypingEffect=1, textHistoire
         else:
             preText = ""
 
-            
         # verification : is the json is correct to use it
         if element["text"]:
 
@@ -52,12 +52,9 @@ def _drawText(arrayOfProposition, indexSelection, isTypingEffect=1, textHistoire
 
 
 
-
-
 # ---------------------------------------------------------------------------- #
 #                   Fonctions utilisables en dehors du script                  #
 # ---------------------------------------------------------------------------- #
-
 
 
 
@@ -154,7 +151,7 @@ def choiceSelectionWithDice( textHistoire , jsonArrayChoice, timeout=0.05):
         nbCurrentRound += 1
 
     textWriter.writeTextWithTypingEffect("Le numero est : ")
-    textWriter.writeTextWithoutTypingEffect(randomNumber)
+    textWriter.writeTextWithoutTypingEffect(randomNumber+1)
     textWriter.writeTextWithoutTypingEffect("Appuyer sur entrer pour continuer")
     keyboard.wait("enter")
     tool.clearConsole()
