@@ -54,7 +54,7 @@ def readFromJSON(filename):
     # Vérifier si le fichier JSON existe et n'est pas vide
     if os.path.exists(filename) and os.stat(filename).st_size > 0:
         # Charger les données existantes
-        with open(filename, 'r') as file:
+        with open(filename, 'r', encoding='utf-8') as file:
             data = json.load(file)
 
     return data

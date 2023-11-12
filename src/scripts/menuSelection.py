@@ -148,6 +148,7 @@ def choiceSelectionWithDice( textHistoire , jsonArrayChoice, timeout=0.05):
 
     print("le numero est : ")
     print(randomNumber)
+    print("appuyer sur entrer pour continuer")
     keyboard.wait("enter")
     tool.clearConsole()
     return pages[randomNumber]
